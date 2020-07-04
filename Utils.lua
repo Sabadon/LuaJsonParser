@@ -26,3 +26,29 @@ function readFile(filename)
     f:close()
     return content
 end
+
+function printMapTable(table)
+    for i, v in pairs(table) do
+        if type(v) ~= 'table' then
+            print('key: ' .. i .. ' value: ' .. v)
+        else
+            printMapTable(v)
+        end
+    end
+end
+
+function endsWith( str , ending )
+    if str ~= '' and str:sub(-#ending) == ending then 
+        return true
+    else
+        return false
+    end
+end
+
+function startsWith( str, start)
+    return str:sub(1, #start) == start
+end
+
+function string:trim()
+    print('trim')
+end

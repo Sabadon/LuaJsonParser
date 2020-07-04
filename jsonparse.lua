@@ -3,28 +3,27 @@ require("Utils")
 
 function loadJsonFile( )
     filename = iup.GetFile('*.*')
-    if checkValidFile(filename) then
-        local content = split(readFile(filename), ',')
-        for i = 1, #content do
-            print(content[i])
-        end
+    if endsWith(filename, '.json') then
+        -- local content = split(readFile(filename), ',')
+        -- for i = 1, #content do
+        --     print(content[i])
+        -- end
+        return readFile(filename)
     else
         print('Incorrect file format!')
     end
 end
 
-function checkValidFile(str)
-    local ending = '.json'
-    if str ~= '' and str:sub(-#ending) == ending then 
-        return true
-    else
-        return false
-    end
+function parse(content)
+    local json = {}
+
+    return json
 end
 
---loadJsonFile()
-testtable = {name = jhon, surname = cat}
-
-for i = 1, #testtable do
-    print(content[i])
+function startParser()
+    local fileContent = loadJsonFile()
+    print(fileContent:trim())
+    printMapTable(parse(fileContent))
 end
+
+startParser()
