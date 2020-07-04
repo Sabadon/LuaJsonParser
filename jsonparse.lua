@@ -3,7 +3,7 @@ require("Utils")
 
 function loadJsonFile( )
     filename = iup.GetFile('*.*')
-    if endsWith(filename, '.json') then
+    if filename:endsWith('.json') then
         -- local content = split(readFile(filename), ',')
         -- for i = 1, #content do
         --     print(content[i])
@@ -16,13 +16,19 @@ end
 
 function parse(content)
     local json = {}
+    content = content:trim()
+    if content:startWith('{') and content:endsWith('}') then
+        content = content:sub(2, -2):trim()
+    end
 
+    print(content)
     return json
 end
 
 function startParser()
     local fileContent = loadJsonFile()
-    print(fileContent:trim())
+    local tes = ' (*&(!@!#!^#!*(@.,.~)))   123    123             '
+    print(tes:trim())
     printMapTable(parse(fileContent))
 end
 

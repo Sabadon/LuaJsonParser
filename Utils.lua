@@ -37,18 +37,14 @@ function printMapTable(table)
     end
 end
 
-function endsWith( str , ending )
-    if str ~= '' and str:sub(-#ending) == ending then 
-        return true
-    else
-        return false
-    end
+function string:endsWith( ending )
+    return self ~= '' and self:sub(-#ending) == ending
 end
 
-function startsWith( str, start)
-    return str:sub(1, #start) == start
+function string:startWith( start )
+    return self:sub(1, #start) == start
 end
 
 function string:trim()
-    print('trim')
+   return (self:gsub("^%s*(.-)%s*$", "%1"))
 end
