@@ -21,6 +21,8 @@ function parse(content)
         content = content:sub(2, -2):trim()
     end
 
+    content = content:split(',')
+
     print(content)
     return json
 end

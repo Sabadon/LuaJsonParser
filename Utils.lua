@@ -1,9 +1,9 @@
-function split(str, separator)
+function string:split(separator)
     local result = {}
     local tmp = ''
 
-    for i = 1, #str do
-        local c = str:sub(i, i)
+    for i = 1, #self do
+        local c = self:sub(i, i)
         --print(tmp)
         if c ~= separator then
             tmp = tmp .. c
