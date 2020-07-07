@@ -1,8 +1,7 @@
-require("iuplua")
 require("Utils")
 
 function loadJsonFile( )
-    filename = iup.GetFile('*.*')
+    filename = 'test.json'
     if filename:endsWith('.json') then
         -- local content = split(readFile(filename), ',')
         -- for i = 1, #content do
