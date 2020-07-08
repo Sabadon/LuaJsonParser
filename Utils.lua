@@ -14,7 +14,7 @@ function string:split(separator)
     end 
 
     if tmp ~= '' then 
-        table.insert( result, tmp )
+        table.insert( result, tmp:trim() )
     end
 
     return result

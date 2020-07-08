@@ -13,6 +13,10 @@ function loadJsonFile( )
     end
 end
 
+function checkTypeJsonElem(element)
+
+end
+
 function parse(content)
     local json = {}
     content = content:trim()
@@ -22,15 +26,21 @@ function parse(content)
 
     content = content:split(',')
 
-    print(content)
+    for i = 1, #content do
+        local elem = content[i]:split(':')
+        local key = elem[1]:sub(2, -2):trim()
+        local val = elem[2]:sub(2, -2):trim()
+        json[key] = val
+    end
+
+    print(printMapTable(content))
     return json
 end
 
 function startParser()
     local fileContent = loadJsonFile()
-    local tes = ' (*&(!@!#!^#!*(@.,.~)))   123    123             '
-    print(tes:trim())
-    printMapTable(parse(fileContent))
+    local parsed = parse(fileContent)
+    printMapTable(parsed)
 end
 
 startParser()
